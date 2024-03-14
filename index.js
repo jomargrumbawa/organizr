@@ -4,6 +4,7 @@ const todoInput = document.getElementById("todo-input")
 
 submitBtn.addEventListener("click", function() {
   const todo = todoInput.value
+  clearTodoInput()
   appendToList(todo)
 })
 
@@ -11,4 +12,8 @@ function appendToList(value) {
   const listItem = document.createElement("li")
   listItem.textContent = value
   todosList.append(listItem)
+}
+
+function clearTodoInput() {
+  todoInput.value = ""
 }
