@@ -11,11 +11,17 @@ if (localStorage.getItem("todos")) {
 }
 
 submitBtn.addEventListener("click", function() {
-  const todo = todoInput.value
-  todos.push(todo)
-  clearTodoInput()
-  saveToLocalStorage(todos)
-  renderList()
+  if (!todos.includes(todoInput.value)) {
+    const todo = todoInput.value
+    todos.push(todo)
+    clearTodoInput()
+    saveToLocalStorage(todos)
+    renderList()
+  } else {
+    todoInput.value = ""
+    alert('Already added')
+  }
+
 })
 
 function saveToLocalStorage(list) {
@@ -25,6 +31,14 @@ function saveToLocalStorage(list) {
 function appendToList(value) {
   const listItem = document.createElement("li")
   listItem.textContent = value
+  listItem.addEventListener("click", function(e) {
+    const updatedTodos = todos.filter(function(todo) {
+      return todo !== e.target.textContent
+    })
+    todos = updatedTodos
+    saveToLocalStorage(todos)
+    renderList()
+  })
   todosList.append(listItem)
 }
 
