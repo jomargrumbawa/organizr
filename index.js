@@ -15,7 +15,7 @@ submitBtn.addEventListener("click", function() {
   todos.push(todo)
   clearTodoInput()
   saveToLocalStorage(todos)
-  appendToList(todo)
+  renderList()
 })
 
 function saveToLocalStorage(list) {
@@ -30,4 +30,11 @@ function appendToList(value) {
 
 function clearTodoInput() {
   todoInput.value = ""
+}
+
+function renderList() {
+  todosList.innerHTML = ""
+  todos.forEach(function(todo) {
+    appendToList(todo)
+  })
 }
