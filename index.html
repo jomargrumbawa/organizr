@@ -3,12 +3,19 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>Organizr</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-  <input type="text" id="todo-input">
-  <button id="submit-btn">submit</button>
-  <ul id="todos"></ul>
+  <div class="app">
+    <input class="todo-input" type="text" id="todo-input" placeholder="Enter a task">
+    <button class="btn" id="submit-btn">Submit</button>
+    <h2 class="text-center">Needs to complete</h2>
+    <ul class="todos-list" id="todos"></ul>
+  </div>
   <script src="index.js"></script>
 </body>
 </html>
